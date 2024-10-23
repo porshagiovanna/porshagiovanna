@@ -1,0 +1,227 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Generic Page - Massively by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo.png"></a>
+					</header>
+
+				<!-- Nav -->
+				<nav id="nav">
+					<ul class="links">
+						<li><a href="index.html">Home</a></li>
+                        <li><a href="generic.html">Our Story</a></li>
+                        <li><a href="shop.html">Dried Flowers</a></li>
+						<li><a href="elements.html">Add More</a></li>
+						<li class="active"><a href="cart.html">My Cart</a></li>
+						<li><a href="contact us.html">Contact Us</a></li>
+						<li id="loginStatus"></li> <!-- Placeholder for login status -->
+						<li><a href="log in.html">Log In</a></li>
+					</ul>
+				</nav>
+
+
+				<!-- Main -->
+					<div id="main">
+	
+                        <!-- Cart Page -->
+						<h2>My Cart</h2>
+						<div class="table-wrapper">
+							<table>
+								<thead>
+									<tr>
+										<th>Name</th>
+										<th>Price</th>
+										<th>Quantity</th>
+										<th>Total Price</th>
+									</tr>
+								</thead>
+								<tbody id="cart-body">
+									<!-- Cart items will be dynamically inserted here -->
+								</tbody>
+								<tfoot>
+									<tr>
+										<td colspan="3" style="text-align: right; font-weight: bold;">Total Cart Price:</td>
+										<td id="total-price">$0.00</td>
+									</tr>
+								</tfoot>
+							</table>
+							<button id="clear-cart-button">Clear Cart</button>
+						</div>
+
+				<!-- Checkout Section -->
+
+				<section>
+					<h2>Checkout</h2>
+					<div class="checkout-options">
+						<h3>Select Payment Method:</h3>
+						<div class="button-container">
+							<a href="https://www.apple.com/au/apple-pay/" target="_blank">
+								<button id="apple-pay" class="checkout-button">Apple Pay</button>
+							</a>
+							<a href="https://shop.app/" target="_blank">
+								<button id="shop-app" class="checkout-button">Shop the App</button>
+							</a>								</div>
+					</div>
+				</section>
+				
+				<section>
+					<h2>Order Notes</h2>
+					<div class="field">
+						<textarea name="message" id="message" rows="3"></textarea>
+					</div>
+				</section>
+
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+			<script>
+			// Initialize localStorage to ensure no one is logged in when the site is first opened
+			if (localStorage.getItem("memberSignedIn") === null) {
+				localStorage.setItem("memberSignedIn", "false");
+			}
+
+			// Handle the login form submission
+			document.querySelector("form").addEventListener("submit", function(event) {
+				event.preventDefault(); // Prevent the form from submitting normally
+
+				// Simulate a successful login
+				localStorage.setItem("memberSignedIn", "true"); // Set the user as logged in
+
+				// Redirect to the home page
+				window.location.href = "index.html";
+			});
+		</script>
+
+		<script>
+			// Function to add items to the cart
+				function addToCart(productName, price) {
+					let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+					let existingProduct = cart.find(item => item.name === productName);
+					
+					if (existingProduct) {
+						existingProduct.quantity += 1;
+					} else {
+						cart.push({
+							name: productName,
+							price: price,
+							quantity: 1
+						});
+					}
+
+					localStorage.setItem('cart', JSON.stringify(cart));
+					localStorage.setItem('cartTimestamp', Date.now());
+
+					alert(`${productName} has been added to your cart!`);
+				}
+
+				// Function to check if the cart has expired
+				function checkCartExpiration() {
+					const timestamp = localStorage.getItem('cartTimestamp');
+					
+					if (timestamp) {
+						const now = Date.now();
+						const oneMinute = 60 * 60 * 1000;
+
+						if (now - timestamp > oneHour) {
+							localStorage.removeItem('cart');
+							localStorage.removeItem('cartTimestamp');
+							alert('Your cart has been cleared due to inactivity.');
+						}
+					}
+				}
+
+				// Function to load the cart items for display
+					function loadCart() {
+						const cart = JSON.parse(localStorage.getItem('cart')) || [];
+						const cartTableBody = document.getElementById('cart-body'); 
+						cartTableBody.innerHTML = ''; 
+
+						let totalAmount = 0; 
+
+						cart.forEach(item => {
+							const totalPrice = item.price * item.quantity;
+							totalAmount += totalPrice;
+
+							const row = `<tr>
+											<td>${item.name}</td>
+											<td>$${item.price.toFixed(2)}</td>
+											<td>${item.quantity}</td>
+											<td>$${totalPrice.toFixed(2)}</td>
+										</tr>`;
+							cartTableBody.innerHTML += row; 
+						});
+
+						// Update the total amount in the footer
+						document.getElementById('total-price').textContent = `$${totalAmount.toFixed(2)}`;
+					}
+
+				// Function to clear the cart
+				function clearCart() {
+					localStorage.removeItem('cart');
+					localStorage.removeItem('cartTimestamp');
+					alert('Your cart has been cleared.');
+					loadCart(); // Refresh the cart display
+				}
+
+				// Attach event listener to the clear cart button
+				document.getElementById('clear-cart-button').addEventListener('click', clearCart);
+
+				// Call checkCartExpiration and loadCart when the page loads
+				document.addEventListener('DOMContentLoaded', function() {
+					checkCartExpiration(); 
+					loadCart(); 
+				});
+
+					// Simulate submitting the order
+				document.getElementById('submit-order').addEventListener('click', function() {
+           	 	const notes = document.getElementById('order-notes').value;
+           		 alert(`Order submitted!\nNotes: ${notes}`);
+      			 });
+
+
+				// Handle Contact Form Submission
+					document.getElementById("send-message").addEventListener("click", function(event) {
+					event.preventDefault(); // Prevent the form from submitting normally
+					showNotification("Message Sent!"); // Show notification
+					document.getElementById("message").value = ""; // Clear the textarea
+				});
+
+
+		</script>
+
+		</script>
+
+	</body>
+</html>

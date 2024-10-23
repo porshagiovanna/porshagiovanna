@@ -1,0 +1,323 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Elements Reference - Massively by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+
+	<style>
+        #calculator {
+            width: 50%;
+            padding: 20px;
+            border-right: 1px solid #ccc;
+        }
+        .option-button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 5px;
+            border: 1px solid #ccc;
+            cursor: pointer;
+            background-color: transparent;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        #cartItems {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            width: 80%;
+		}
+    </style>
+</head>
+
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo.png"></a>
+					</header>
+
+				<!-- Nav -->
+				<nav id="nav">
+					<ul class="links">
+						<li><a href="index.html">Home</a></li>
+						<li><a href="generic.html">Our Story</a></li>
+						<li><a href="shop.html">Dried Flowers</a></li>
+						<li class="active"><a href="elements.html">Add More</a></li>
+						<li><a href="cart.html">My Cart</a></li>
+						<li><a href="contact us.html">Contact Us</a></li>
+						<li><a href="log in.html">Log In</a></li>
+					</ul>
+				</nav>
+
+						<!-- Main Content for the Shop -->
+						<div id="main">
+							<!-- Shop Section -->
+							<section class="shop">
+								<div class="product-grid">
+
+							<!-- Small Vase -->
+							<div class="product-card">
+								<div class="product-image-container">
+									<div class="product-flip-card">
+										<div class="product-flip-card-inner">
+											<div class="product-flip-card-front">
+												<img src="images/small vase.png" alt="Small Vase" style="width: 100%; height: auto;" onclick="addToCart('Small Vase',6)"> <!-- Resized image -->
+											</div>
+											<div class="product-flip-card-back">
+												<p class="product-description">Price: $6.00</p>
+												<a href="#" class="add-to-cart-button" onclick="addToCart('Small Vase', 6)">Add to Cart</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>  
+
+							<!-- Medium Vase -->
+							<div class="product-card">
+								<div class="product-image-container">
+									<div class="product-flip-card">
+										<div class="product-flip-card-inner">
+											<div class="product-flip-card-front">
+												<img src="images/medium vase.png" alt="Medium Vase" style="width: 100%; height: auto;" onclick="addToCart('Medium Vase',14)"> <!-- Resized image -->
+											</div>
+											<div class="product-flip-card-back">
+												<p class="product-description">Price: $14.00</p>
+												<a href="#" class="add-to-cart-button" onclick="addToCart('Medium Vase', 14)">Add to Cart</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>  
+
+							<!-- Large Vase -->
+							<div class="product-card">
+								<div class="product-image-container">
+									<div class="product-flip-card">
+										<div class="product-flip-card-inner">
+											<div class="product-flip-card-front">
+												<img src="images/large vase.png" alt="Large Vase" style="width: 100%; height: auto;" onclick="addToCart('Large Vase',24)"> <!-- Resized image -->
+											</div>
+											<div class="product-flip-card-back">
+												<p class="product-description">Price: $24.00</p>
+												<a href="#" class="add-to-cart-button" onclick="addToCart('Large Vase', 24)">Add to Cart</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>  
+
+							<!-- Brown Paper -->
+							<div class="product-card">
+								<div class="product-image-container">
+									<div class="product-flip-card">
+										<div class="product-flip-card-inner">
+											<div class="product-flip-card-front">
+												<img src="images/brown paper.png" alt="Brown Paper" style="width: 100%; height: auto;" onclick="addToCart('Brown Paper',3)"> <!-- Resized image -->
+											</div>
+											<div class="product-flip-card-back">
+												<p class="product-description">Price: $3.00</p>
+												<a href="#" class="add-to-cart-button" onclick="addToCart('Brown Paper', 3)">Add to Cart</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>  
+
+							<!-- Tissue Paper -->
+							<div class="product-card">
+								<div class="product-image-container">
+									<div class="product-flip-card">
+										<div class="product-flip-card-inner">
+											<div class="product-flip-card-front">
+												<img src="images/tissue paper.png" alt="Tissue Paper" style="width: 100%; height: auto;" onclick="addToCart('Tissue Paper',3)"> <!-- Resized image -->
+											</div>
+											<div class="product-flip-card-back">
+												<p class="product-description">Price: $3.00</p>
+												<a href="#" class="add-to-cart-button" onclick="addToCart('Tissue Paper', 3)">Add to Cart</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>  
+
+							<!-- Customised Card -->
+							<div class="product-card">
+								<div class="product-image-container">
+									<div class="product-flip-card">
+										<div class="product-flip-card-inner">
+											<div class="product-flip-card-front">
+												<img src="images/customised card.png" alt="Customised Card" style="width: 100%; height: auto;" onclick="addToCart('Customised Card',5)"> <!-- Resized image -->
+											</div>
+											<div class="product-flip-card-back">
+												<p class="product-description">Price: $5.00</p>
+												<a href="#" class="add-to-cart-button" onclick="addToCart('Customised Card',5)">Add to Cart</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>  
+
+									
+								<!-- Candle -->
+								<div class="product-card">
+									<div class="product-image-container">
+										<div class="product-flip-card">
+											<div class="product-flip-card-inner">
+												<div class="product-flip-card-front">
+													<img src="images/candle.png" alt="Candle" style="width: 100%; height: auto;" onclick="addToCart('Candle',20)"> <!-- Resized image -->
+												</div>
+												<div class="product-flip-card-back">
+													<p class="product-description">Price: $20.00</p>
+													<a href="#" class="add-to-cart-button" onclick="addToCart('Candle', 20)">Add to Cart</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>     
+								
+								<!-- Champayne -->
+								<div class="product-card">
+									<div class="product-image-container">
+										<div class="product-flip-card">
+											<div class="product-flip-card-inner">
+												<div class="product-flip-card-front">
+													<img src="images/champayne.png" alt="Champayne" style="width: 100%; height: auto;" onclick="addToCart('Champayne', 50)"> <!-- Resized image -->
+												</div>
+												<div class="product-flip-card-back">
+													<p class="product-description">Price: $50.00</p>
+													<a href="#" class="add-to-cart-button" onclick="addToCart('Champayne', 50)">Add to Cart</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<!-- Chocolate -->
+								<div class="product-card">
+									<div class="product-image-container">
+										<div class="product-flip-card">
+											<div class="product-flip-card-inner">
+												<div class="product-flip-card-front">
+													<img src="images/chocolate.png" alt="Chocolate" style="width: 100%; height: auto;" onclick="addToCart('Chocolate', 10)"> <!-- Resized image -->
+												</div>
+												<div class="product-flip-card-back">
+													<p class="product-description">Price: $10.00</p>
+													<a href="#" class="add-to-cart-button" onclick="addToCart('Chocolate', 10)">Add to Cart</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+						
+								<!-- Ribbon -->
+								<div class="product-card">
+									<div class="product-image-container">
+										<div class="product-flip-card">
+											<div class="product-flip-card-inner">
+												<div class="product-flip-card-front">
+													<img src="images/Ribbon.png" alt="Ribbon" style="width: 100%; height: auto;" onclick="addToCart('Ribbon', 2)"> <!-- Resized image -->
+												</div>
+												<div class="product-flip-card-back">
+													<p class="product-description">Price: $2.00</p>
+													<a href="#" class="add-to-cart-button" onclick="addToCart('Ribbon', 2)">Add to Cart</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>                                  
+
+								<!-- Scented Sachet -->
+								<div class="product-card">
+									<div class="product-image-container">
+										<div class="product-flip-card">
+											<div class="product-flip-card-inner">
+												<div class="product-flip-card-front">
+													<img src="images/scented sachet.png" alt="Scented Sachet" style="width: 100%; height: auto;" onclick="addToCart('Scented Sachet', 12)"> <!-- Resized image -->
+												</div>
+												<div class="product-flip-card-back">
+													<p class="product-description">Price: $12.00</p>
+													<a href="#" class="add-to-cart-button" onclick="addToCart('Scented Sachet', 12)">Add to Cart</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>                                 
+
+					<!-- Twine -->
+					<div class="product-card">
+						<div class="product-image-container">
+							<div class="product-flip-card">
+								<div class="product-flip-card-inner">
+									<div class="product-flip-card-front">
+										<img src="images/twine.png" alt="Twine" style="width: 100%; height: auto;" onclick="addToCart('Twine', 2)"> <!-- Resized image -->
+									</div>
+									<div class="product-flip-card-back">
+										<p class="product-description">Price: $2.00</p>
+										<a href="#" class="add-to-cart-button" onclick="addToCart('Twine', 2)">Add to Cart</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+			</section>
+		</div>		
+
+						<!-- Copyright -->
+						<div id="copyright">
+						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+						</div>
+
+						</div>
+
+						<!-- Scripts -->
+						<script src="assets/js/jquery.min.js"></script>
+						<script src="assets/js/jquery.scrollex.min.js"></script>
+						<script src="assets/js/jquery.scrolly.min.js"></script>
+						<script src="assets/js/browser.min.js"></script>
+						<script src="assets/js/breakpoints.min.js"></script>
+						<script src="assets/js/util.js"></script>
+						<script src="assets/js/main.js"></script>
+
+						<script>
+						function addToCart(productName, productPrice) {
+						// Get the current cart from local storage or initialize an empty array
+						let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+						// Check if the product is already in the cart
+						const existingProductIndex = cart.findIndex(item => item.name === productName);
+
+						if (existingProductIndex > -1) {
+						// If the product exists, increase the quantity
+						cart[existingProductIndex].quantity += 1;
+						} else {
+						// Otherwise, add a new product to the cart
+						cart.push({
+							name: productName,
+							price: productPrice,
+							quantity: 1
+						});
+						}
+
+						// Save the updated cart back to local storage
+						localStorage.setItem('cart', JSON.stringify(cart));
+
+						// Show a notification
+						alert(`${productName} has been added to your cart.`);
+						}
+						</script>
+
+						</body>
+						</html>

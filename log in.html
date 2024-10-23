@@ -1,0 +1,137 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Generic Page - Massively by HTML5 UP</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+</head>
+<body class="is-preload">
+
+<!-- Wrapper -->
+<div id="wrapper">
+
+    <!-- Header -->
+    <header id="header">
+        <a href="index.html" class="logo.png"></a>
+    </header>
+
+    <!-- Nav -->
+    <nav id="nav">
+        <ul class="links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="generic.html">Our Story</a></li>
+            <li><a href="shop.html">Dried Flowers</a></li>
+            <li><a href="elements.html">Add More</a></li>
+            <li><a href="cart.html">My Cart</a></li>
+            <li><a href="contact us.html">Contact Us</a></li>
+            <li class="active"><a href="log in.html">Log In</a></li>
+        </ul>
+    </nav>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <section>
+            <h2>Log In</h2>
+            <form id="loginForm" method="post" action="#">
+                <div class="fields">
+                    <div class="field">
+                        <label for="loginEmail">Email</label>
+                        <input type="email" name="loginEmail" id="loginEmail" required />
+                    </div>
+                    <div class="field">
+                        <label for="loginPassword">Password</label>
+                        <input type="password" name="loginPassword" id="loginPassword" required />
+                    </div>
+                </div>
+                <ul class="actions">
+                    <li><input type="submit" value="Enter" /></li>
+                </ul>
+            </form>
+        </section>
+        
+        <section>
+            <h2>Sign Up</h2>
+            <form id="signupForm" method="post" action="#">
+                <div class="fields">
+                    <div class="field">
+                        <label for="First + Last name">First + Last Name</label>
+                        <input type="text" name="First + Last name" id="First + Last name" required />
+                    </div>
+                    <div class="field">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email" required />
+                    </div>
+                    <div class="field">
+                        <label for="Enter password">Enter Password</label>
+                        <input type="text" name="Enter password" id="Enter password" required />
+                    </div>
+					<div class="field">
+                        <label for="Enter Same Password">Enter Same Password</label>
+                        <input type="text" name="Enter Same Password" id="Enter Same Password" required />
+                    </div>
+                </div>
+                <ul class="actions">
+                    <li><input type="submit" value="Complete" /></li>
+                </ul>
+            </form>
+        </section>
+
+        <!-- Notification Message -->
+        <div id="notification" class="notification" style="display:none;"></div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+    <script>
+        // Handle Login Form Submission
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent the form from submitting normally
+
+            // Set the login status in local storage
+            localStorage.setItem("memberSignedIn", "true");
+
+             // Show notification
+             var notification = document.getElementById("notification");
+            notification.innerHTML = "Member is Logged In!";
+            notification.style.display = "block"; // Display the notification
+
+
+            // Hide the notification after 2 seconds
+            setTimeout(function() {
+            notification.style.display = "none";
+    
+            // Redirect to the home page after the notification is hidden
+            window.location.href = "index.html"; // Adjust this to the correct home page URL
+        }, 2000); // Keep the notification visible for 2 seconds
+        });
+
+        // Handle Sign-Up Form Submission
+            document.getElementById("signupForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent the form from submitting normally
+
+            // Show notification
+            var notification = document.getElementById("notification");
+            notification.innerHTML = "Verify Email. Once Completed, Log In!";
+            notification.style.display = "block"; // Display the notification
+
+            // Hide the notification after a few seconds
+            setTimeout(function() {
+                notification.style.display = "none";
+            }, 5000); // Hide after 5 seconds
+
+            // Optionally clear the form
+            this.reset();
+        });
+    </script>
+</div>
+</body>
+</html>
